@@ -6,8 +6,8 @@
 }
 #myCarousel{
     margin-left: 10px;
-    width: 30vw;
-    height:80vh;
+    width: 40vw;
+    height:120vh;
 }
 .carousel-inner > .carousel-item > img {
     width: 100%;

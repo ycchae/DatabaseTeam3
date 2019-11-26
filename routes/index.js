@@ -10,7 +10,9 @@ router.get('/',  async (req, res) => {
   movies = await Movie.query();
   console.log(movies);
   res.render('index', {
-     title: 'DBLOVE CINEMA',
+     pagetitle: 'DBLOVE CINEMA',
+     pagecss: 'movieinfo.css',
+     pagejs: 'movieinfo.js',
      username: sess.username,
      movieDetails: movies
     });
