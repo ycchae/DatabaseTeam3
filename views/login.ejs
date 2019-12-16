@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" , href="./css/bootstrap.css">
+  <link rel="stylesheet" , href="./css/bootstrap-theme.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqery/1.12.4/jquery.min.js"></script>
+  <style>
+    body,
+    html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    .bgimg {
+      border: 0;
+      padding: 0;
+      min-height: 100%;
+    }
+  </style>
+  <style>
+    .login_area {
+      width: 350px;
+      height: 50px;
+      font-family: 'NanumSquare', sans-serif;
+      font-size: 15px;
+      text-align: left;
+    }
+  </style>
+
+</head>
+
+<body style="background-color:lightslategray; margin-top:50px;">
+
+  <header>
+    <h3 style="font-size:50px; text-align:center;">KNU Movie</h3>
+    </h1>
+  </header>
+  <main style="margin-top:70px;">
+    <div>
+      <form name="login_form" method="post" action="./login">
+        <div class="panel panel-default" style="width:400px; height:450px; margin:0 auto; padding:10px;">
+          <div class="panel-head" style="font-size:30px; text-align:center;">로그인</div>
+          <div class="panel-body">
+            <label for="user_email">E-mail</label>
+            <input class="login_area" type="email" id="user_email" name="user_email" placeholder="이메일을 입력하세요"><br>
+            <label for="user_password">Password</label>
+            <input class="login_area" type="password" id="user_email" name="user_password"
+              placeholder="비밀번호를 입력하세요"><br>
+          </div>
+          <div>
+            <button class="btn btn-primary" style="width:350px; height:50px; margin:12px; font-size:15px" type="submit">로그인</button>
+          </div>
+          <div style="margin-top:50px; text-align:center;">
+            <text class="text-secondary">계정이 필요하신가요?</text>
+            <a href="/signup" class="text-primary">회원가입</a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+  <footer></footer>
+
+  <script type="text/javascript" src="js/bootstrap.js"></script>
+</body>
+
+</html>
