@@ -17,5 +17,6 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('movie');
+  return knex.schema.dropTable('movie')
+  .then(()=> console.log('movie dropped'));
 };
