@@ -16,7 +16,7 @@ exports.up = function(knex) {
         VALUES (sysdate, :old."ticket_id", :old."user_id", '취소');
       end if;
     end;
-  `).then(()=> console.log('trig_ticket_trace created'));
+  `).then(()=> console.log('trig_ticket_trace crewated'));
 };
 
 exports.down = function(knex) {

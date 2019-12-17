@@ -21,13 +21,14 @@ async function loadMoviesFromTmdb(){
   movies = Array();
   for(var i=0; i<20; ++i){
       let movie_id = discover_res["results"][i]["id"];
+      let movie_title = discover_res["results"][i]["title"];
       // console.log(discover_res["results"][i]);
 
       let movie_detail_url = `https://api.themoviedb.org/3/movie/${movie_id}?language=en-US&api_key=${key}`;
       var res = await fetch(movie_detail_url)
       let movie_detail_res = await res.json();
       // console.log(movie_detail_res);
-      let movie_title = movie_detail_res["title"];
+      
       var movie_genres = movie_detail_res["genres"];
       let movie_genre = "";
       for(var j=0; j<movie_genres.length; ++j)
@@ -70,7 +71,7 @@ async function loadMoviesFromTmdb(){
           movie_isAdult: movie_isAdult,
           movie_posterURL: movie_posterURL
       };
+      console.log(movies[i]);
   }
-  console.log(movies);
   return movies;
 }

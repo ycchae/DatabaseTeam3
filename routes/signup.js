@@ -5,33 +5,36 @@ const {User} = require("../models/User");
 
 const router = express.Router();
 
+router.get("/", (req, res) => {
+    res.render('signup', {
+        pagetitle: 'Signup',
+        pagecss: 'signup.css'
+       });
+});
+
 router.post("/", async (req, res) => {
     const newRow = req.body;
-    console.log(newRow);
+    
     const check = await User.query()
         .where("user_email", "=", newRow["user_email"])
         .first();
-
+    console.log(check);
 
     if (!check) {
         const newUser = {
             user_email: newRow["user_email"],
             user_password: newRow["user_password"],
-            user_birthdate: newRow["user_birthdate"]
+            user_birthdate: new Date(newRow["user_birthdate"])
         };
-        console.log(newRow);
-        const user = await User.query().insert(newUser);
+        console.log(newUser);
+        await User.query().insert(newUser);
 
-        res.send({success:1});
+        res.redirect("/login");
     }
     else{
         alert('이미 존재하는 이메일입니다.');
         res.redirect("/signup");
     }
-});
-
-router.get("/", (req, res) => {
-    res.render("signup");
 });
 
 module.exports = router;

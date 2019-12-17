@@ -10,4 +10,6 @@
 <script src="/js/bootstrap.min.js"></script>
 <!-- other scripts -->
 <script src="/javascripts/navigateBar.js"></script>
-<script src='/javascripts/<%= pagejs %>'></script>
+<% if(typeof pagejs !== "undefined") {%>
+    <script src='/javascripts/<%=pagejs%>'></script>
+<% } %>

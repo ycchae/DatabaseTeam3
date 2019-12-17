@@ -1,15 +1,8 @@
 function loginButton(logined) {
   if(logined){
-      // LOGOUT
-      var field = [];
-      field[0] = makeHiddenField('page', 'home');
-      field[1] = makeHiddenField('logout', 'lg');
-      postData(field);
+      window.location.href = 'http://localhost:3000/logout';
   }else{
-      // LOGIN
-      var field = [];
-      field[0] = makeHiddenField('page', 'login');
-      postData(field);
+      window.location.href = 'http://localhost:3000/login';
   }
 }
 

@@ -13,9 +13,14 @@
                             <%for(var i=0; i<movieDetails.length; ++i){%>
                             <% var title = movieDetails[i]["movie_title"];%>
                             <% var vote_average = movieDetails[i]["movie_rating"].toFixed(1);%>
+                            <% var isAdult = movieDetails[i]['movie_isAdult']; %>
                             <a href='#myCarousel' data-slide-to=<%=i%> class='list-group-item list-group-item-action'
                                 id='list_<%=i%>'>
                                 &starf;&nbsp;&nbsp;<%=vote_average%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=title%>
+                                &nbsp;
+                                <% if(isAdult == 1) { %>
+                                    <img style='height: 22px;' src="/adult.svg" alt="">
+                                <%} %>
                             </a>
                             <%}%>
                         </ul>
@@ -29,12 +34,19 @@
                             <%for(var i=0; i<movieDetails.length; ++i){%>
                             <% var imgurl = "http://image.tmdb.org/t/p/w780"+movieDetails[i]['movie_posterURL']; %>
                             <% var title = movieDetails[i]['movie_title']; %>
+                            <% var actors = movieDetails[i]['movie_actors']; %>
+                            <% var director = movieDetails[i]['movie_director']; %>
+                            <% var genres = movieDetails[i]['movie_genre']; %>
+                            <% var runtime = movieDetails[i]['movie_runtime']; %>
                             <% var overview = movieDetails[i]['movie_plot']; %>
                             <div class='carousel-item' id='cinner_<%=i%>'>
                                 <img class='img-responsive center-block' alt='Poster' src=<%= imgurl %> />
                                 <div class='carousel-caption d-none d-md-block'>
-                                    <h2><%= title %></h2>
-                                    <p style='visibility:hidden'><%= overview %></p>
+                                    <!-- <h2><%= title %></h2> -->
+                                    <p style='visibility:hidden'>Actors: <%= actors%></p>
+                                    <p style='visibility:hidden'>Directors: <%=director%></p>
+                                    <p style='visibility:hidden'>Overview: <%=overview %></p>
+                                    <p style='visibility:hidden'>Genres: <%=genres %></p>
                                 </div>
                             </div>
                             <%}%>

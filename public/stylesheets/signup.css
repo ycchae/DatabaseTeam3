@@ -1,0 +1,11 @@
+/* body {
+    background-color: dimgray;
+} */
+    
+.login_area {
+    width: 350px;
+    height: 50px;
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 15px;
+    text-align: left;
+}

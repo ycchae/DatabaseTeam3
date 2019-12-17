@@ -1,50 +1,33 @@
 <html>
 
-<head>
-    <link rel="stylesheet" , href="./css/bootstrap.css">
-    <link rel="stylesheet" , href="./css/bootstrap-theme.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jqery/1.12.4/jquery.min.js"></script>
-    <title>SIGN UP</title>
-    <style>
-        body {
-            background-color: dimgray;
-        }
-    
-        .login_area {
-            width: 350px;
-            height: 50px;
-            font-family: 'NanumSquare', sans-serif;
-            font-size: 15px;
-            text-align: left;
-        }
-    </style>
-
-</head>
+<% include ./header %>
 
 <body>
-    <header>
-        <h1 style="font-size:50px; text-align:center;">SIGN UP</h1>
-    </header>
-    <main style="margin-top:70px;">
-        <div>
-          <form name="login_form" method="post" action="./login">
-            <div class="panel panel-default" style="width:400px; height:450px; margin:0 auto; padding:10px;">
-              <div class="panel-head" style="font-size:30px; text-align:center;">회원가입</div>
-              <div class="panel-body">
-                <label for="user_email">가입에 사용할 E-mail</label>
-                <input class="login_area" type="email" id="user_email" name="user_email" placeholder="이메일을 입력하세요"><br>
-                <label for="user_password" style="margin-top:30px;">가입에 사용할 비밀번호</label>
-                <input class="login_area" type="password" id="user_email" name="user_password"
-                  placeholder="비밀번호를 입력하세요"><br>
-              </div>
-              <div>
-                <button class="btn btn-primary" style="width:350px; height:50px; margin:12px; font-size:15px" type="submit">가입 완료</button>
-              </div>
-            </div>
-          </form>
+  <header>
+    <h1 style="font-size:50px; text-align:center;">SIGN UP</h1>
+  </header>
+
+  <div style="margin-top:70px;">
+    <form name="login_form" method="post" action="./signup">
+      <div class="panel panel-default" style="width:400px; height:450px; margin:0 auto; padding:10px;">
+        <div class="panel-head" style="font-size:30px; text-align:center;">회원가입</div>
+        <div class="panel-body">
+          <label for="user_email">가입에 사용할 E-mail</label>
+          <input class="login_area" type="email" name="user_email" placeholder="이메일을 입력하세요"><br>
+          <label for="user_password" style="margin-top:30px;">가입에 사용할 비밀번호</label>
+          <input class="login_area" type="password" name="user_password" placeholder="비밀번호를 입력하세요"><br>
+          <label for="user_birthdate">가입에 사용할 생년월일</label>
+          <input class="login_area" type="date" name="user_birthdate"><br>
         </div>
-      </main>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
+        <div>
+          <button class="btn btn-primary" style="width:350px; height:50px; margin:12px; font-size:15px" type="submit">가입
+            완료</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <% include ./footer %>
 </body>
 
 </html>

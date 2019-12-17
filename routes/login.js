@@ -1,10 +1,16 @@
 const express = require("express");
+const router = express.Router();
 const alert = require("alert-node");
 
-const {User} = require("../models/User");
+const { User } = require("../models/User");
 
-const router = express.Router();
-
+router.get('/', async(req, res) => {
+  res.render('login', {
+     pagetitle: 'Login',
+     pagecss: 'login.css'
+    });
+    
+});
 router.post("/", async(req, res)=>{
     const credentials = req.body;
 
@@ -14,15 +20,15 @@ router.post("/", async(req, res)=>{
       .first();
     console.log(user);
 
-    if(user)
-    res.send({
-        success: 1,
-        user_email: user["user_email"],
-        user_birthdate: user["user_birthdate"]
-    });
+    sess = req.session;
+
+    if(user){
+      sess.username = user['user_email'];
+      res.redirect("/");
+    }
     else {
       alert('아이디가 존재하지 않거나 비밀번호가 틀렸습니다.');
-      res.redirect("./");
+      res.redirect("/login");
     }
 });
 
