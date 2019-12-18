@@ -21,9 +21,9 @@ async function run(str) {
 
   try {
     connection = await oracledb.getConnection(  {
-      user          : "musong",
-      password      : "musong",
-      connectString : "localhost/oraknu"
+      user          : "admin",
+      password      : "DBLab012345",
+      connectString : "db-team-project.crdklj6af2vt.ap-northeast-2.rds.amazonaws.com/oraknu"
     })
     
     result = await connection.execute(str)
