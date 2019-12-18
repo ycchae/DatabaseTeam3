@@ -4,8 +4,8 @@ module.exports = {
   client: 'oracledb',
   connection: {
     host: 'localhost',
-    user: 'kdhong',
-    password: 'kdhong',
-    database: 'xe',
+    user: 'musong',
+    password: 'musong',
+    database: 'oraknu',
   }
 };

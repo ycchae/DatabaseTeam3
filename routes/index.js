@@ -24,6 +24,7 @@ router.get('/logout',  async (req, res) => {
   sess = req.session;
   
   sess.username = null;
+  sess.user_id = null;
   movies = await Movie.query();
   console.log(movies);
   res.render('index', {

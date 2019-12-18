@@ -24,6 +24,7 @@ router.post("/", async(req, res)=>{
 
     if(user){
       sess.username = user['user_email'];
+      sess.user_id = user['user_id'];
       res.redirect("/");
     }
     else {

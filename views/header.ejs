@@ -20,13 +20,15 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
             <!-- MovieInfo, Reservation -->
             <ul class="navbar-nav mr-auto">
-                <li class="active nav-item"><a class="nav-link" href="#">Movie Info</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" onclick="reservButton()">Movie Reservation</a></li>
+                <li class="active nav-item"><a class="nav-link" href="/">Movie Info</a></li>
+                <li class="nav-item"><a class="nav-link" href="/book">Movie Reservation</a></li>
+
             </ul>
     
             <!-- Welcome, Mypage, Login -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
+                    <img style="float: left;" src="user.png" height="15" width="15"/>
                     <% if(typeof username !== "undefined" && username != null){ %>
                     <a class='nav-link' href='#'> Hi! <%= username %>.</a>
                     <% }else{ %>
@@ -44,12 +46,6 @@
                         <% } %>
                     </button>
                 </li>
-                <% if(typeof username !== "undefined" && username == 'yunchang'){ %>
-                <li class="nav-item">
-                    <button class="btn btn-danger">ManagerOnly<br>Movie Reset</button>
-                    <!-- TODO: add onclick -->
-                </li>
-                <% } %>
             </ul>
         </div>
     </nav>

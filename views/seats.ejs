@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html5>
+	<% include ./header %>
+  	<body>
+		<div style = "height : 100px; background-color : #F3E2A9; color: slategray; line-height: 90px; padding-left: 200px; min-width: 1280px;">
+			성인
+			<select id = "adult" style = "width: 100px; height: 30px;" onchange = "change('adult')">
+				<% for(var i = 0; i <= 8; i++) { %>
+					<option value = <%= i %>> <%= i %>명 </option>
+				<% } %>
+			</select>
+			
+			청소년
+			<select id = "teenager" style = "width: 100px; height: 30px;" onchange = "change('teenager')">
+				<% for(var i = 0; i <= 8; i++) { %>
+					<option value = <%= i %>> <%= i %>명 </option>
+				<% } %>
+			</select>
+		</div>		
+
+		<div class = "page">
+			<div class = "screen" style = "font-size : 24px; text-align : center;"> Screen </div>
+			<p style = "margin-bottom : 60px"> </p>
+			
+			<div class = "line" style = "width : 60px; margin-left : 30px; margin-right : 30px;">
+				<% for(var i = 1; i <= 5; i++) { %>
+					<div class = "seat" style = "background-color : ivory;"> <%= String.fromCharCode(64 + i) %> </div>
+				<% } %>
+			</div>
+
+			<div class = "line" style = "width : 180px">
+				<% for(var i = 1, n = 1; i <= 15; i++, n++) { %>
+					<button class = "seat" id = "seat<%= i %>" onclick = "setColor('seat<%= i %>', '<%= i %>')"> <%= n %> </button>
+					<% if(n == 3) { n = 0; } %>
+				<% } %>
+			</div>
+			
+			<div class = "line" style = "width : 240px;">
+				<% for(var i = 16, n = 4; i <= 35; i++, n++) { %>
+					<button class = "seat" id = "seat<%= i %>" onclick = "setColor('seat<%= i %>', '<%= i %>')"> <%= n %> </button>
+					<% if(n == 7) { n = 3; } %>
+				<% } %>
+			</div>
+
+			<div class = "line" style = "width : 180px">
+				<% for(var i = 36, n = 8; i <= 50; i++, n++) { %>
+					<button class = "seat" id = "seat<%= i %>" onclick = "setColor('seat<%= i %>', '<%= i %>')"> <%= n %> </button>
+					<% if(n == 10) { n = 7; } %>
+				<% } %>
+			</div>
+			
+		</div>
+
+		<div style = "width : 960px; height : 80px">
+			<div class = "seat" style = "float : right; width : 30px; height : 30px; background-color : #F78181;"> </div>
+			<div class = "seat" style = "float : right; width : 80px; line-height : 30px; background-color : white; font-size : 16px;"> 예매 불가 </div>
+			<div class = "seat" style = "float : right; width : 30px; height : 30px; background-color : #A9D0F5;"> </div>
+			<div class = "seat" style = "float : right; width : 80px; line-height : 30px; background-color : white; font-size : 16px;"> 좌석 선택 </div>
+			<div class = "seat" style = "float : right; width : 30px; height : 30px;"> </div>
+			<div class = "seat" style = "float : right; width : 80px; line-height : 30px; background-color : white; font-size : 16px;"> 예매 가능 </div>
+		</div>
+
+		<div style = "height : 100px; background-color : #F3E2A9; min-width: 1280px;">				
+			<button class = "make" onclick="check('<%= user_id %>', '<%= ts_id %>')"> 예매하기 </button>
+		</div>
+
+		<% include ./footer %>
+
+		<% for(var i = 0; i < book.length; i++) { %>
+			<script> disable("seat<%= book[i] %>", "<%= book[i] %>"); </script>
+		<% } %>
+  	</body>
+</html5>

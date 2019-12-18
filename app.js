@@ -7,6 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var signupRouter = require('./routes/signup');
 var loginRouter = require('./routes/login');
+var seatsRouter = require('./routes/seats');
+var resultRouter = require('./routes/result');
+var bookRouter = require('./routes/book');
 
 var session = require('express-session');
 
@@ -45,6 +48,9 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
+app.use('/seats', seatsRouter);
+app.use('/result', resultRouter);
+app.use('/book', bookRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
