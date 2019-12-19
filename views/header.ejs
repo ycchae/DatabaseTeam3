@@ -46,13 +46,17 @@
           <% } %>
         </li>
 
-        <li class="nav-item">
+        <!--li class="nav-item">
           <a
             class="nav-link"
             onclick='myInfoButton(<%= typeof username !== "undefined" && username != null %>)'
             >My Info</a
           >
-        </li>
+        </li-->
+        <% if(typeof username !== "undefined" && username != null){ %>
+          <li class="nav-item"><a class="nav-link" href="/myinfo">My Page</a></li>
+        <% } %>
+
         <li class="nav-item">
           <button
             class="btn btn-outline-success"

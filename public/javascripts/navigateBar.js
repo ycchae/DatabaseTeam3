@@ -1,14 +1,14 @@
 function loginButton(logined) {
   if (logined) {
-    window.location.href = "http://localhost:3000/logout";
+    window.location.href = "/logout";
   } else {
-    window.location.href = "http://localhost:3000/login";
+    window.location.href = "/login";
   }
 }
 
 function myInfoButton(loggedIn) {
   if (loggedIn) {
-    window.location.href = "http://localhost:3000/myinfo";
+    window.location.href = "/myinfo";
   } else {
     alert("계정정보를 보시려면 로그인을 해주세요.");
   }
