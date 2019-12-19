@@ -5,7 +5,11 @@
 <% include ./header %>
 <body>
     <p>이메일:&nbsp;<%=user['user_email']%></p>
-    <p>생년월일:&nbsp;<%=user['user_birthdate']%></p>
+    <p>생년월일:&nbsp;
+        <%=user['user_birthdate']%></p>
+    <% if(tickets.length == 0) { %>
+        <p>예매 내역이 아직 없습니다!&nbsp;</p>
+    <%} %>
     <div class="container-fluid" style="float: center">
         <div class="row">
                     <div class="col-sm-1 col-md-1 col-lg-1"></div>
