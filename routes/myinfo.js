@@ -7,15 +7,17 @@ const { raw } = require("objection");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
+  sess = req.session;
+
   const user = await User.query()
-    .where("user_id", "=", 1)
+    .where("user_email", "=", sess.username)
     .first(); //TODO
   //   const tickets = await Ticket.query()
   //     .where("ticket_user_id", "=", 1) //TODO
   //     .eager("[timeslot]");
   console.log(
     TicketTrace.query()
-      .where("USER_ID", "=", 1) //TODO
+      .where("USER_ID", "=", user["user_id"]) //TODO
       .select(
         "TIME",
         "MEMO",
@@ -32,7 +34,7 @@ router.get("/", async (req, res) => {
   );
 
   const tickets5 = await TicketTrace.query()
-    .where("USER_ID", "=", 1) //TODO
+    .where("USER_ID", "=", user["user_id"]) //TODO
     .select(
       "TIME",
       "MEMO",
@@ -52,7 +54,8 @@ router.get("/", async (req, res) => {
     pagecss: "myinfo.css",
     // pagejs: 'myinfo.js',
     tickets: tickets5,
-    user: user
+    user: user,
+    username: sess.username
   });
 });
 

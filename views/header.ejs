@@ -1,52 +1,70 @@
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- stylesheet -->
-    <% if(typeof pagecss !== "undefined") { %>
-        <link rel="stylesheet" href='/stylesheets/<%=pagecss%>'>
-    <% } %>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- stylesheet -->
+  <% if(typeof pagecss !== "undefined") { %>
+  <link rel="stylesheet" href="/stylesheets/<%=pagecss%>" />
+  <% } %>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
 
-    <title><%= pagetitle %></title>
+  <title><%= pagetitle %></title>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/">DBLOVE CINEMA</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"
-            aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarToggler">
-            <!-- MovieInfo, Reservation -->
-            <ul class="navbar-nav mr-auto">
-                <li class="active nav-item"><a class="nav-link" href="/">Movie Info</a></li>
-                <li class="nav-item"><a class="nav-link" href="/book">Movie Reservation</a></li>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">DBLOVE CINEMA</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarToggler"
+      aria-controls="navbarToggler"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+      <!-- MovieInfo, Reservation -->
+      <ul class="navbar-nav mr-auto">
+        <li class="active nav-item">
+          <a class="nav-link" href="/">Movie Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/book">Movie Reservation</a>
+        </li>
+      </ul>
 
-            </ul>
-    
-            <!-- Welcome, Mypage, Login -->
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <img style="float: left;" src="user.png" height="15" width="15"/>
-                    <% if(typeof username !== "undefined" && username != null){ %>
-                    <a class='nav-link' href='#'> Hi! <%= username %>.</a>
-                    <% }else{ %>
-                    <h2> Please Login. </h2>
-                    <% } %>
-                </li>
-    
-                <li class="nav-item"><a class="nav-link" onclick="myPageButton()">My Page</a></li>
-                <li class="nav-item">
-                    <button class="btn btn-outline-success" id="loginButton" onclick='loginButton(<%= typeof username !== "undefined" && username != null %>)' style="width:auto;">
-                        <% if(typeof username !== "undefined" && username != null){ %>
-                        <%= "Logout" %>
-                        <% }else{ %>
-                        <%= "Login" %>
-                        <% } %>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
+      <!-- Welcome, Mypage, Login -->
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <img style="float: left;" src="user.png" height="15" width="15" />
+          <% if(typeof username !== "undefined" && username != null){ %>
+          <a class="nav-link" href="#"> Hi! <%= username %>.</a>
+          <% }else{ %>
+          <h2>Please Login.</h2>
+          <% } %>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            onclick='myInfoButton(<%= typeof username !== "undefined" && username != null %>)'
+            >My Info</a
+          >
+        </li>
+        <li class="nav-item">
+          <button
+            class="btn btn-outline-success"
+            id="loginButton"
+            onclick='loginButton(<%= typeof username !== "undefined" && username != null %>)'
+            style="width:auto;"
+          >
+            <% if(typeof username !== "undefined" && username != null){ %> <%=
+            "Logout" %> <% }else{ %> <%= "Login" %> <% } %>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </head>

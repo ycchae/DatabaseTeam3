@@ -1,0 +1,13 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "xe",
+            "dialect": "OracleDB",
+            "name": "Kdhong",
+            "password": "kdhong",
+            "port": 1521,
+            "server": "localhost",
+            "username": "kdhong"
+        }
+    ]
+}
