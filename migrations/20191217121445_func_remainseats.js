@@ -5,8 +5,7 @@ exports.up = function(knex) {
     is v_count number;
     begin
         select count("ticket_id") into v_count from "ticket"
-        where "ticket_ts_id" = p_ts_id
-        group by "ticket_ts_id";
+        where "ticket_ts_id" = p_ts_id;
 
         return 50 - v_count;
     end;
